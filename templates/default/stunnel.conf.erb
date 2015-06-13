@@ -92,8 +92,6 @@ client = <%= opts[:client] ? "yes" : "no" %>
 <% end -%>
 <% end -%>
 
-<% node[:stunnel][:extra_options].each do |opt| -%>
-<% unless opts[opt].nil? -%>
-<%= opt %> = <%= opts[opt] %>
-<% end -%>
+<% node[:stunnel][:extra_options].each do |key, val| -%>
+<%= key %> = <%= val %>
 <% end -%>
