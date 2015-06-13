@@ -1,1 +1,1 @@
-default[:stunnel][:extra_options] = {}
+default[:stunnel][:extra_options] = { fips: 'no' }
