@@ -50,6 +50,11 @@ options = <%= opt %>
 ; alternatively CRLfile can be used
 ;CRLfile = /usr/bin/etc/stunnel/crls.pem
 
+; extra options
+<% node[:stunnel][:extra_options].each do |key, val| -%>
+<%= key %> = <%= val %>
+<% end -%>
+
 ; debugging stuff (may useful for troubleshooting)
 ;debug = 7
 <% if node[:stunnel][:debug] -%>
@@ -90,8 +95,4 @@ TIMEOUTclose = <%= opts[:timeout_close] ? 1 : 0 %>
 <% unless opts[:client].nil? -%>
 client = <%= opts[:client] ? "yes" : "no" %>
 <% end -%>
-<% end -%>
-
-<% node[:stunnel][:extra_options].each do |key, val| -%>
-<%= key %> = <%= val %>
 <% end -%>
