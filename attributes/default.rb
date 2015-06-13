@@ -1,0 +1,1 @@
+default[:stunnel][:extra_options] = {}
